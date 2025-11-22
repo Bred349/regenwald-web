@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tropischer Regenwald – Präsentation</title>
+
+<style>
+    /* ------------------ FONT ------------------ */
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+
+    body {
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+        background: linear-gradient(#0d2b1f, #144f39);
+        color: #f3f5f4;
+        overflow-x: hidden;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* ------------------ SECTIONS ------------------ */
+    .section {
+        width: 85%;
+        margin: 60px auto;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        backdrop-filter: blur(6px);
+        padding: 35px;
+        border-radius: 25px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+
+        /* Start hidden */
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 1.2s ease;
+    }
+
+    /* When visible */
+    .section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    h1, h2 {
+        margin-top: 0;
+    }
+
+    h1 {
+        font-size: 2.4rem;
+        letter-spacing: 1px;
+        text-shadow: 0 0 12px rgba(0,0,0,0.45);
+    }
+
+    h2 {
+        font-size: 1.9rem;
+    }
+
+    .mini-text {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin-bottom: 20px;
+    }
+
+    /* ------------------ IMAGE STYLES ------------------ */
+    .image-box img,
+    .right img,
+    .left img {
+        width: 100%;
+        border-radius: 18px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+    }
+
+    /* ------------------ TWO COLUMN LAYOUT ------------------ */
+    .two-col {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    .left, .right {
+        flex: 1 1 300px;
+    }
+</style>
+</head>
+<body>
+
+<!-- ================== SECTION 1 ================== -->
+<div class="section">
+    <h1>Der Tropische Regenwald</h1>
+    <p class="mini-text">
+        Der tropische Regenwald: ein heißer, feuchter und lebensreicher Ort, 
+        der unser Klima prägt und zu den wichtigsten Ökosystemen der Erde zählt.
+    </p>
+
+    <div class="image-box">
+        <img src="https://cdn.discordapp.com/attachments/1348733008827383848/1441717338176098425/image.png?ex=6922cf67&is=69217de7&hm=9cebd193c1131e76e3d6c8f2413d09837e769c99a4e9717b6df80964cded39df&" alt="Weltkarte Tropischer Regenwald">
+    </div>
+</div>
+
+<!-- ================== SECTION 2 ================== -->
+<div class="section">
+    <h2>Atmosphäre & Eindruck – „So fühlt sich der Regenwald an“</h2>
+
+    <div class="two-col">
+        <div class="left">
+            <p>
+            Der tropische Regenwald wirkt wie eine völlig eigene Welt. Schon am Ufer großer 
+            Flüsse wie dem Amazonas merkt man sofort die enorme Feuchtigkeit: überall tropft 
+            Wasser von Blättern und Stämmen. Je tiefer man in den Wald hineingeht, desto dunkler 
+            und dichter wird es, weil das dichte Blätterdach kaum Licht hindurchlässt.
+            <br><br>
+            Wind gibt es fast keinen, die Luft steht schwer und warm. Der Geruch ist intensiv, 
+            geprägt von feuchtem Holz, nassen Blättern und ständig verrottender Pflanzenmasse. 
+            Dicke Lianen hängen von den Bäumen und verstärken das Gefühl, dass dieser Lebensraum 
+            wild und kaum berührt ist.
+            </p>
+        </div>
+
+        <div class="right">
+            <img src="https://cdn.discordapp.com/attachments/1348733008827383848/1441717338570489907/2Q.png?ex=6922cf67&is=69217de7&hm=cb71e84bcefcb8bc5c5d669ca146fd3d910d4359c05a4112a845853b86883a92&" alt="Bild Regenwald Atmosphäre">
+        </div>
+    </div>
+</div>
+
+<!-- ================== SECTION 3 (NEU) ================== -->
+<div class="section">
+    <h2>Klima im Tropischen Regenwald</h2>
+
+    <div class="two-col">
+
+        <!-- Bild links -->
+        <div class="left">
+            <img src="https://cdn.discordapp.com/attachments/1348733008827383848/1441717338998046830/Z.png?ex=6922cf67&is=69217de7&hm=aa25324a3dfabcc4601eb018138995ee7afacb03fcf33aa18c71e2c5dad9b188&" alt="Klima Tropischer Regenwald">
+        </div>
+
+        <!-- Text rechts -->
+        <div class="right">
+            <p>
+            Im tropischen Regenwald gibt es keine klassischen Jahreszeiten wie Sommer oder Winter. 
+            Stattdessen bleibt das Klima das ganze Jahr über ähnlich – es ist immer warm und feucht. 
+            Die größten Temperaturunterschiede findet man nicht zwischen Monaten, sondern zwischen 
+            Tag und Nacht.
+            <br><br>
+            Tagsüber wird es heiß, während es nachts spürbar abkühlt. Die Durchschnittstemperaturen 
+            liegen konstant zwischen 25 und 28 Grad Celsius, was optimale Bedingungen für das üppige 
+            Pflanzenwachstum schafft.
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<!-- ================== JS FOR SCROLL ANIMATION ================== -->
+<script>
+    const sections = document.querySelectorAll('.section');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.25
+    });
+
+    sections.forEach(sec => observer.observe(sec));
+</script>
+
+</body>
+</html>
